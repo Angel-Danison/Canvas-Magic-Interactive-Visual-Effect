@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Circle Drawer</title>
+    
+    <style>
+  
+    body {
+        margin: 10px;
+        display: flex;
+        flex-direction:inherit;
+        justify-content: center;
+        height: 50vh;
+        padding: 20px;
+        background:url(./Screenshot\ 2024-11-23\ 093916.png) no-repeat  center center;
+        background-position: center;
+        background-color: rgb(201, 214, 12);
+    
+    }
+    
+    button {
+        padding: 10px 10px;
+        margin: px;
+        font-size: 15px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #0e0304;
+        color: rgb(207, 30, 98);
+        transition: background-color 0.3s;
+        height: fit-content;
+        width: 150px;
+    }
+    
+    button:hover {
+        background-color: burlywood;
+    }
+    
+    canvas {
+        border: 3px solid rgb(19, 7, 7);
+        margin-top:50px;
+        margin-bottom: 10px;
+  
+      
+      
+    }
+    </style>
+</head>
+<body>
+    <button id="drawButton">SEE THE MAGIC</button>
+    <canvas></canvas>
+</body>
+</html><script>const btn = document.querySelector("button");
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+
+document.addEventListener("DOMContentLoaded", () => {
+  canvas.width = document.documentElement.clientWidth;
+  canvas.height = document.documentElement.clientHeight;
+});
+
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < 100; i++) {
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(230 100 200 / 50%)";
+    ctx.arc(
+      random(canvas.width),
+      random(canvas.height),
+      random(50),
+      0,
+      2 * Math.PI,
+    );
+    ctx.fill();
+  }
+}
+
+btn.addEventListener("click", draw);
+</script>
